@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
 const InputField = ({ label, type, placeholder, register, error }) => (
-    <div className="mb-4">
+    <div className="mb-4 w-full">
         {label && <label className="block text-sm font-medium">{label}</label>}
         <input
             type={type}
-            className="w-full border-b border-gray-300 outline-none py-2"
+            className="w-full border-b border-gray-300 p-2"
             placeholder={placeholder}
             {...register}
         />

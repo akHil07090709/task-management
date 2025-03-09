@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import PrivateRoute from "./components/PrivateRoute";
+import Header from "./components/header/Header";
+import PrivateRoute from "./components/auth/PrivateRoute";
 import NotFound from "./pages/NotFound";
 
 const Login = lazy(() => import("./pages/Login"));

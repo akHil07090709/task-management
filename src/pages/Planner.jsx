@@ -5,6 +5,7 @@ import useTaskStore from "../store/taskStore";
 import useUserStore from "../store/userStore";
 import SelectField from "../components/common/SelectField";
 import InputField from "../components/common/InputField";
+import Column from "../components/planner/Column";
 
 const Planner = () => {
   const { user } = useUserStore();
@@ -78,37 +79,41 @@ const Planner = () => {
       return 0;
     });
 
-
-
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="p-6">
         <div className="flex gap-4 mb-4">
-          <InputField
-            type="text"
-            placeholder="Search tasks..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <SelectField
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            options={[
-              { value: "", label: "Sort By" },
-              { value: "priority", label: "Priority" },
-              { value: "dueDate", label: "Due Date" },
-            ]}
-          />
-          <SelectField
-            value={filterPriority}
-            onChange={(e) => setFilterPriority(e.target.value)}
-            options={[
-              { value: "", label: "Filter by Priority" },
-              { value: "High", label: "High" },
-              { value: "Medium", label: "Medium" },
-              { value: "Low", label: "Low" },
-            ]}
-          />
+          <div className="w-3/5">
+            <InputField
+              type="text"
+              placeholder="Search tasks..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <div className="w-1/5">
+            <SelectField
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              options={[
+                { value: "", label: "Sort By" },
+                { value: "priority", label: "Priority" },
+                { value: "dueDate", label: "Due Date" },
+              ]}
+            />
+          </div>
+          <div className="w-1/5">
+            <SelectField
+              value={filterPriority}
+              onChange={(e) => setFilterPriority(e.target.value)}
+              options={[
+                { value: "", label: "Filter by Priority" },
+                { value: "High", label: "High" },
+                { value: "Medium", label: "Medium" },
+                { value: "Low", label: "Low" },
+              ]}
+            />
+          </div>
         </div>
         <div className="flex gap-4">
           {["To Do", "In Progress", "Done"].map((status) => (
